@@ -1,7 +1,5 @@
 import os
-import pathlib
 import uuid
-
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.conf import settings
@@ -43,7 +41,7 @@ class Actor(models.Model):
 def movie_image_path(instance: "Movie", filename: str):
     _, ext = os.path.splitext(filename)
     return os.path.join(
-        "uploads/images/",
+        "uploads/movies/",
         f"{slugify(instance.title)}-{uuid.uuid4()}{ext}"
     )
 
